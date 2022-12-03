@@ -1,0 +1,65 @@
+<!-- Store this code in 'login.html' file inside the 'templates' folder -->
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+        
+		<title> NBA Database </title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href = "mainpage.css">
+        <link rel="icon" type="image/x-icon" href="nba.ico">		
+	</head>
+	<body></br></br></br></br></br>
+
+		<div align="center">
+		<div align="center" class="border">
+			<div class="header">
+				<h1 class="word">Welcome the NBA Database</h1>
+			</div></br></br>
+			<h2 class="word">
+				<form>
+                    <div class = "add-button"><button class="button button1">Add Player to Your Team</button></div>
+					<div class="msg"> You can select your season, team or player. </div>
+                    <div class="msg"> You can make your team with any player in any team in any season. </div>
+                    <br>
+					<div class="dropdown">
+                        <button class="dropbtn">Season</button>
+                        <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Teams</button>
+                        <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Games</button>
+                        <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Players</button>
+                        <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                    </div>
+				</form>
+			</h2>
+		</div>
+		</div>
+	</body>
+</html>
