@@ -7,8 +7,39 @@
 </head>
  
 <body>
+
+    <table>
+		<tr>
+		  <th>gameDate</th>
+		  <th>gameStatus</th>
+		  <th>homeTeamPoints</th>
+		  <th>percentageFG</th>
+		  <th>percentageFT</th>
+		  <th>homeTeamID</th>
+		  <th>visitorTeamID</th>
+          <th>id</th>
+		</tr>
+        {% for  game in  games %}
+ 		<a href="http://127.0.0.1:5000/api/game/get/{{ game.id }}">
+
+		<tr>
+		  <td>{{ game.gameDate }}</td>
+		  <td>{{ game.gameStatus }}</td>
+		  <td>{{ game.homeTeamPoints }}</td>
+		  <td>{{ game.percentageFG }}</td>
+		  <td>{{ game.percentageFT }}</td>
+		  <td>{{ game.homeTeamID }}</td>
+		  <td>{{ game.visitorTeamID }}</td>
+          <td>{{ game.id }}</td>
+		</tr>
+
+        </a>
+        {% endfor %}
+	</table>
+
+
     <!-- data -->
-    <h3>Games, {{Games}}</h3>
+    <h3>games, {{games}}</h3>
 </body>
  
 </html>
