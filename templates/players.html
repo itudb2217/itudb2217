@@ -7,7 +7,33 @@
 </head>
  
 <body>
-    <!-- data -->
+    <table>
+		<tr>
+		  <th>playerName</th>
+		  <th>position</th>
+		  <th>age</th>
+		  <th>leauge</th>
+		  <th>experince</th>
+		  <th>teamID</th>
+		  <th>seasonID</th>
+		</tr>
+		{% for player in Players %}
+        <a href="http://127.0.0.1:5000/api/player/get/{{ player.id }}">
+
+		<tr>
+		  <td>{{ player.playerName }}</td>
+		  <td>{{ player.position }}</td>
+		  <td>{{ player.age }}</td>
+		  <td>{{ player.leauge }}</td>
+		  <td>{{ player.experince }}</td>
+		  <td>{{ player.teamID }}</td>
+		  <td>{{ player.seasonID }}</td>
+          <td>{{ player.id }}</td>
+
+		</tr>
+        </a>
+		{% endfor %}
+	  </table>
     <h3>Players, {{Players}}</h3>
 </body>
  

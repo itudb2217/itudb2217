@@ -7,9 +7,10 @@ api = Blueprint("player_api", __name__, template_folder="templates")
 @api.route("/get/<id>", methods=["GET", "POST"])
 def get(id):
     player = Player.get_by_id(id)
+    print(player)
     if not player:
         return jsonify({"status": "fail", "message": "player does not exist"})
-    return render_template("players.html", Player=player)
+    return render_template("player.html", Player=player)
 
 
 @api.route("/create", methods=["POST", "GET"])

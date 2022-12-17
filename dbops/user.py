@@ -73,3 +73,4 @@ class user(Base):
 User = user(
     "testing.db",
 )
+User.create({"email": "qewewqe", "password": "eqwewqeqw"})

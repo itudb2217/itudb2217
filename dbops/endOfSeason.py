@@ -3,7 +3,7 @@ from .base import Base
 
 class endOfseason(Base):
     def _init_(self, db_name):
-        Base._init_(self, db_name, "teams")
+        Base._init_(self, db_name, "endOfseason")
 
     def create(self, endOfSeason):
         self.cursor.execute(
@@ -73,4 +73,4 @@ class endOfseason(Base):
         return endOfSeasons
 
 
-EndOfseason = endOfseason("testing.db")
+# EndOfseason = endOfseason("testing.db")
