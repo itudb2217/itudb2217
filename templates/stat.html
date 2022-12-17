@@ -7,8 +7,35 @@
 </head>
  
 <body>
-    <!-- data -->
-    <h3>Stat, {{Stat}}</h3>
+    <table>
+		     <tr>
+		       <th>teamName</th>
+		       <th>loss</th>
+		       <th>win</th>
+		       <th>age</th>
+		       <th>winPercentage</th>
+		       <th>conference</th>
+		       <th>abbreviation</th>
+		       <th>seasonID</th>
+		       <th>playerID</th>
+         <th>id</th>
+		    </tr>
+
+		    <tr>
+		       <td>{{ stat.teamName }}</td>
+		       <td>{{ stat.loss }}</td>
+		       <td>{{ stat.win }}</td>
+		       <td>{{ stat.age }}</td>
+		       <td>{{ stat.winPercentage }}</td>
+		       <td>{{ stat.conference }}</td>
+		       <td>{{ stat.abbreviation }}</td>
+		       <td>{{ stat.seasonID }}</td>
+		       <td>{{ stat.playerID }}</td>
+         <td>{{ stat.id }}</td>
+		   </tr>
+	  </table>
+ 
+   <!-- data -->
 </body>
  
 </html>
