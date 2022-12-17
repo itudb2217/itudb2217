@@ -8,7 +8,6 @@ api = Blueprint("game_api", __name__)
 @api.route("/create", methods=["POST", "GET"])
 def createTeam():
     if request.method == "POST":
-        print("HERE")
         data = {
             "teamName": request.form["teamName"],
             "loss": request.form["loss"],
@@ -24,9 +23,8 @@ def createTeam():
         print(data)
         if not game:
             return jsonify({"status": "fail", "message": "can not be created"})
-        return render_template("games.html", Game=game)
-
-    return redirect(url_for("game_create.login"))
+        return render_template("game_create.html", Game=game)
+    return render_template("game_create.html", Game=game)
 
 
 @api.route("/get/<id>", methods=["GET", "POST"])
