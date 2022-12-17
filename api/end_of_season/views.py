@@ -1,3 +1,66 @@
-from flask import Blueprint
+from flask import Blueprint, jsonify, render_template, request
+from dbops.endOfSeason import EndOfseason
 
 api = Blueprint("endofSeason_api", __name__)
+
+
+@api.route("/create", methods=["POST", "GET"])
+def createTeam():
+    if request.method == "POST":
+        data = {
+            "type": request.form["type"],
+            "teamNo": request.form["teamNo"],
+            "position": request.form["position"],
+            "voteNo": request.form["voteNo"],
+            "birth": request.form["birth"],
+            "season": request.form["season"],
+            "playerID": request.form["playerID"],
+            "seasonID": request.form["seasonID"],
+        }
+        endOfseason = EndOfseason.create(data)
+        if not endOfseason:
+            return jsonify({"status": "fail", "message": "can not be created"})
+    return jsonify({"status": "success", "data": endOfseason})
+
+
+@api.route("/get/<id>", methods=["GET", "POST"])
+def get(id):
+    endOfseason = EndOfseason.get_by_id(id)
+    if not endOfseason:
+        return jsonify({"status": "fail", "message": "endOfseason does not exist"})
+
+    return render_template("endOfseason.html", EndOfseason=endOfseason)
+
+
+@api.route("/get/all", methods=["GET", "POST"])
+def get_all():
+    endOfseasons = EndOfseason.get_all()
+    if not endOfseasons:
+        return jsonify({"status": "fail", "message": "endOfseasons does not exist"})
+
+    return render_template("endOfseasons.html", EndOfseasons=endOfseasons)
+
+
+@api.route("/delete/<id>", methods=["GET", "POST"])
+def delete(id):
+    endOfseason = EndOfseason.delete(id)
+
+    return jsonify({"status": "success"})
+
+
+@api.route("/update/<id>", methods=["GET", "POST"])
+def update(id):
+    data = {
+        "type": request.form["type"],
+        "teamNo": request.form["teamNo"],
+        "position": request.form["position"],
+        "voteNo": request.form["voteNo"],
+        "birth": request.form["birth"],
+        "season": request.form["season"],
+        "playerID": request.form["playerID"],
+        "seasonID": request.form["seasonID"],
+        "id": id,
+    }
+    endOfseason = EndOfseason.update(data)
+
+    return jsonify({"status": "success"})

@@ -1,30 +1,44 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, render_template, request
 from dbops.team import Team
 
-api = Blueprint("team_api", __name__)
+api = Blueprint("team_api", __name__, template_folder="templates")
 
 
 @api.route("/get/<id>", methods=["GET", "POST"])
 def get(id):
-    user = Team.get_by_id(id)
-    if not user:
-        return jsonify({"status": "fail", "message": "user does not exist"})
-    return jsonify({"status": "success", "data": user})
+    team = Team.get_by_id(id)
+    if not team:
+        return jsonify({"status": "fail", "message": "team does not exist"})
 
-    # html 
+    return render_template("team.html", Team=team)
+
+    # html
 
 
 @api.route("/create", methods=["POST", "GET"])
 def createTeam():
-    team = Team.create("teamData")
-    return True
+    if request.method == "POST":
+        data = {
+            "teamName": request.form["teamName"],
+            "playOff": request.form["playOff"],
+            "numOfGames": request.form["numOfGames"],
+            "matchPoints": request.form["matchPoints"],
+            "fieldGoals": request.form["fieldGoals"],
+            "percentageFG": request.form["percentageFG"],
+            "seasonID": request.form["seasonID"],
+        }
+        team = Team.create(data)
+        if not team:
+            return jsonify({"status": "fail", "message": "can not be created"})
+    return jsonify({"status": "success", "data": team})
 
 
 @api.route("/get/all", methods=["GET", "POST"])
 def get_all():
-    data = Team.get_all()
-    print(data)
-    return jsonify({"status": "success", "data": data})
+    teams = Team.get_all()
+    if not teams:
+        return jsonify({"status": "fail", "message": "does not exist"})
+    return render_template("teams.html", Teams=teams)
 
 
 @api.route("/delete/<id>", methods=["GET", "POST"])

@@ -31,8 +31,8 @@ INIT_STATEMENTS = [
         leauge TEXT NOT NULL,
         experince TEXT NOT NULL,
         teamID INTEGER NOT NULL,
-        FOREIGN KEY (teamID) REFERENCES TEAMS(id) ON DELETE CASCADE ON UPDATE CASCADE,
         seasonID INTEGER NOT NULL,
+        FOREIGN KEY (teamID) REFERENCES TEAMS(id) ON DELETE CASCADE ON UPDATE CASCADE,
         FOREIGN KEY (seasonID) REFERENCES ENDOFSEASONS(id) ON DELETE CASCADE ON UPDATE CASCADE
 
     )
@@ -46,8 +46,8 @@ INIT_STATEMENTS = [
         percentageFG INTEGER NOT NULL,
         percentageFT INTEGER NOT NULL,
         homeTeamID INTEGER NOT NULL,
-        FOREIGN KEY (homeTeamID) REFERENCES TEAMS(id) ON DELETE CASCADE ON UPDATE CASCADE,
         visitorTeamID INTEGER NOT NULL,
+        FOREIGN KEY (homeTeamID) REFERENCES TEAMS(id) ON DELETE CASCADE ON UPDATE CASCADE,
         FOREIGN KEY (visitorTeamID) REFERENCES TEAMS(id) ON DELETE CASCADE ON UPDATE CASCADE
 
     )
@@ -63,9 +63,9 @@ INIT_STATEMENTS = [
         conference TEXT NOT NULL,
         abbreviation INTEGER NOT NULL,
         seasonID INTEGER NOT NULL,
-        FOREIGN KEY (seasonID) REFERENCES ENDOFSEASONS(id) ON DELETE CASCADE ON UPDATE CASCADE,
         playerID INTEGER NOT NULL,
-        FOREIGN KEY (seasonID) REFERENCES PLAYERS(id) ON DELETE CASCADE ON UPDATE CASCADE
+        FOREIGN KEY (seasonID) REFERENCES ENDOFSEASONS(id) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (playerID) REFERENCES PLAYERS(id) ON DELETE CASCADE ON UPDATE CASCADE
     )
     """,
     """
@@ -77,11 +77,7 @@ INIT_STATEMENTS = [
         city TEXT NOT NULL,
         startingPosition TEXT NOT NULL,
         gameID INTEGER NOT NULL,
-        FOREIGN KEY (gameID) REFERENCES GAMES(id) ON DELETE CASCADE ON UPDATE CASCADE
-
-
-
-        
+        FOREIGN KEY (gameID) REFERENCES GAMES(id) ON DELETE CASCADE ON UPDATE CASCADE   
     )
     """,
     """
@@ -94,8 +90,8 @@ INIT_STATEMENTS = [
         birth TEXT NOT NULL,
         season INTEGER NOT NULL,
         playerID INTEGER NOT NULL,
-        FOREIGN KEY (playerID) REFERENCES PLAYERS(id) ON DELETE CASCADE ON UPDATE CASCADE,
         teamID INTEGER NOT NULL,
+        FOREIGN KEY (playerID) REFERENCES PLAYERS(id) ON DELETE CASCADE ON UPDATE CASCADE,
         FOREIGN KEY (teamID) REFERENCES TEAMS(id) ON DELETE CASCADE ON UPDATE CASCADE
     )
     """,
@@ -107,7 +103,7 @@ def create_tables():
     with dbapi2.connect("testing.db") as connection:
         cursor = connection.cursor()
         for statement in INIT_STATEMENTS:
-            # print(statement)
+            print(statement)
             cursor.execute(statement)
         connection.commit()
 
