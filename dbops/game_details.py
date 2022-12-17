@@ -3,7 +3,7 @@ from .base import Base
 
 class game_details(Base):
     def __init__(self, db_name):
-        Base.__init__(self, db_name, "games")
+        Base.__init__(self, db_name, "games_details")
 
     def create(self, game):
         self.cursor.execute(
