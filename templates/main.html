@@ -5,8 +5,8 @@
 		<meta charset="UTF-8">
         
 		<title> NBA Database </title>
-		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        <link rel="stylesheet" href = "mainpage.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mainpage.css') }}">		
+    <link rel="stylesheet" href = "mainpage.css">
         <link rel="icon" type="image/x-icon" href="nba.ico">		
 	</head>
 	<body></br></br></br></br></br>
@@ -25,16 +25,22 @@
 					<div class="dropdown">
                         <button class="dropbtn">Season</button>
                         <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
+                          <a href="http://127.0.0.1:5000/api/team/get/season/2022">2022</a>
+                          <a href="http://127.0.0.1:5000/api/team/get/season/2021">2021</a>
+                          <a href="http://127.0.0.1:5000/api/team/get/season/2020">2020</a>
+                          <a href="http://127.0.0.1:5000/api/team/get/season/2019">2019</a>
+                          <a href="http://127.0.0.1:5000/api/team/get/season/2018">2018</a>
+                          <a href="http://127.0.0.1:5000/api/team/get/season/2017">2017</a>
+                          <a href="http://127.0.0.1:5000/api/team/get/season/2016">2016</a>
+
+              
                         </div>
                     </div>
 
                     <div class="dropdown">
                         <button class="dropbtn">Teams</button>
                         <div class="dropdown-content">
-                          <a href="#">Link 1</a>
+                          <a href="#">'Link 1'</a>
                           <a href="#">Link 2</a>
                           <a href="#">Link 3</a>
                         </div>

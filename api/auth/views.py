@@ -5,11 +5,6 @@ from dbops.user import User
 api = Blueprint("auth_api", __name__)
 
 
-@api.route("/home", methods=["GET", "POST"])
-def home():
-    return render_template("main.html")
-
-
 @api.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -40,5 +35,5 @@ def login():
         if password != user["password"]:
             flash("Wrong password!!!")
             return redirect(url_for("auth_api.login"))
-        return redirect(url_for("auth_api.home"))
+        return redirect(url_for("home_api.home"))
     return render_template("login.html")

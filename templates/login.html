@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>NBA Database</title>
   <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
-<link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">		
 <link rel="icon" type="image/x-icon" href="nba.ico">
 
 </head>
@@ -16,7 +16,7 @@
 	<div id="login-form-wrap">
 		
 	<h2>Sign In</h2>
-	<form id="login-form" action="{{ url_for('auth_api.mainpage') }}" method="post">
+	<form id="login-form" action="{{ url_for('auth_api.login') }}" method="post">
 		<p>
 		<input type="text" id="email" name="email" placeholder="Email" required><i class="validation"><span></span><span></span></i>
 		</p>
