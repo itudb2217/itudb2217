@@ -3,12 +3,46 @@
 <html>
  
 <head>
-    <title>FlaskTest</title>
+    <title>Game Create</title>
+    <style> 
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            position : absolute;
+            top : 2.5%;
+            right : 2.5%;
+        }
+        table {
+            border-collapse: collapse;
+            width: 90%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {background-color: coral;}
+          </style>
+    <link rel="icon" type="image/x-icon" href="nba.ico">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </head>
  
 <body>
     <!-- data -->
     <h3>Game, {{Game}}</h3>
+    <button onclick="goBack()">Go Back</button>
 </body>
  
 </html>
