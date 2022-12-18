@@ -39,3 +39,16 @@
         right: 10;
       }
   
+  .logout{
+    background-color: red ; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    position : absolute;
+    top : 10%;
+    right : 2.5%;
+    }
