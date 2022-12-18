@@ -5,7 +5,7 @@
 <head>
     <title>Team</title>
 	<style> 
-		button {
+		.go_back_button {
 			background-color: #4CAF50; /* Green */
 			border: none;
 			color: white;
@@ -18,7 +18,22 @@
 			top : 2.5%;
 			right : 2.5%;
 		  }
-		  table {
+
+		.logout{
+			background-color: red ; /* Green */
+			border: none;
+			color: white;
+			padding: 10px 24px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 12px;
+			position : absolute;
+			top : 10%;
+			right : 2.5%;
+		  }
+
+		table {
             border-collapse: collapse;
             width: 90%;
         }
@@ -52,6 +67,7 @@
 	    <th>seasonID</th>
   		<th>id</th>
 		<th>players</th>
+		<th>games</th>
 
 
 	</tr>
@@ -65,12 +81,11 @@
 	    <td>{{ Team.seasonID }}</td>
     	<td>{{ Team.id }}</td>
 		<td><a href="http://127.0.0.1:5000/api/player/get/team/{{Team.abbreviation}}">players </a></td>
-		<!-- <td><a href="http://127.0.0.1:5000/api/game/get/{{Team.abbreviation}}">games </a></td> -->
+		<td><a href="http://127.0.0.1:5000/api/game/get/{{Team.abbreviation}}">games </a></td>
 	</tr>
   </table>
- 
-    <!-- data -->
-    <button class="get_back" onclick="goBack()">Go Back</button>
+  <button class="go_back_button" onclick="goBack()">Go Back</button>
+  <a href="http://127.0.0.1:5000/api/auth/logout"><button class="logout">Log out</button></a>
 </body>
  
 </html>
