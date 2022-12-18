@@ -103,12 +103,13 @@ with open("games.csv", "r") as fin:
             i["FT_PCT_home"],
             i["HOME_TEAM_ID"],
             i["VISITOR_TEAM_ID"],
+            i["SEASON"],
         )
         for i in dr
     ]
 
 cur.executemany(
-    "INSERT INTO games (gameID,gameDate, gameStatus,homeTeamPoints, percentageFG,  percentageFT, homeTeamID, visitorTeamID) VALUES (?,?, ?,?, ?,?, ?, ?);",
+    "INSERT INTO games (gameID,gameDate, gameStatus,homeTeamPoints, percentageFG,  percentageFT, homeTeamID, visitorTeamID,season) VALUES (?,?, ?,?, ?,?, ?, ?, ?);",
     to_db,
 )
 con.commit()

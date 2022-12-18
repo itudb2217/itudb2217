@@ -45,6 +45,18 @@ def get(id):
     return redirect(url_for("auth_api.login"))
 
 
+@api.route("/get/season/<season>", methods=["GET", "POST"])
+def getBySeason(season):
+    if "email" in session:
+        print(season)
+        endOfseasons = EndOfseason.get_by_season(season)
+        print(endOfseasons)
+        if not endOfseasons:
+            return jsonify({"status": "fail", "message": "does not exist"})
+        return render_template("endOfseasons.html", EndOfseasons=endOfseasons)
+    return redirect(url_for("auth_api.login"))
+
+
 @api.route("/get/all", methods=["GET", "POST"])
 def get_all():
     if "email" in session:

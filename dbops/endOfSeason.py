@@ -16,6 +16,7 @@ class endOfseason(Base):
                 endOfSeason["birth"],
                 endOfSeason["playerID"],
                 endOfSeason["teamID"],
+                endOfSeason["season"],
             ),
         )
         self.conn.commit()
@@ -31,6 +32,7 @@ class endOfseason(Base):
                 endOfSeason["birth"],
                 endOfSeason["playerID"],
                 endOfSeason["teamID"],
+                endOfSeason["season"],
             ),
         )
         self.conn.commit()
@@ -40,6 +42,7 @@ class endOfseason(Base):
         try:
             row = super().get_by_id(id)
             endOfSeason["type"] = row["type"]
+            endOfSeason["season"] = row["season"]
             endOfSeason["teamNo"] = row["teamNo"]
             endOfSeason["position"] = row["position"]
             endOfSeason["league"] = row["league"]
@@ -53,6 +56,29 @@ class endOfseason(Base):
 
         return endOfSeason
 
+    def get_by_season(self, id):
+        endOfSeasons = []
+        try:
+            self.cursor.execute(
+                f"SELECT * FROM {self.table_name} WHERE season=?", (id,)
+            )
+            rows = self.cursor.fetchall()
+            for row in rows:
+                endOfSeason = {}
+                endOfSeason["type"] = row["type"]
+                endOfSeason["teamNo"] = row["teamNo"]
+                endOfSeason["season"] = row["season"]
+                endOfSeason["position"] = row["position"]
+                endOfSeason["league"] = row["league"]
+                endOfSeason["birth"] = row["birth"]
+                endOfSeason["playerID"] = row["playerID"]
+                endOfSeason["teamID"] = row["teamID"]
+                endOfSeason["id"] = row["id"]
+                endOfSeasons.append(endOfSeason)
+        except:
+            endOfSeasons = None
+        return endOfSeasons
+
     def get_all(self):
         endOfSeasons = []
         try:
@@ -61,6 +87,7 @@ class endOfseason(Base):
                 endOfSeason = {}
                 endOfSeason["type"] = row["type"]
                 endOfSeason["teamNo"] = row["teamNo"]
+                endOfSeason["season"] = row["season"]
                 endOfSeason["position"] = row["position"]
                 endOfSeason["league"] = row["league"]
                 endOfSeason["birth"] = row["birth"]

@@ -7,10 +7,17 @@
 		<title> NBA Database </title>
     
     <link rel="stylesheet" href="{{ url_for('static', filename='mainpage.css') }}">		
+<<<<<<< HEAD
     
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='nba.ico') }}">		
 	
   </head>
+=======
+    <style> body{ background-image:url('static/background.jpg');background-size: 100% 100%;  } </style>
+    
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='nba.ico') }}">		
+	</head>
+>>>>>>> f0aeb49dd4fdb1cd1516a0f662706f324ea1b9d1
 	<body></br></br></br></br></br>
 
 		<div align="center">
@@ -41,7 +48,6 @@
           <div class="dropdown">
             <button style="background-color: coral;" class="dropbtn">Season of Games</button>
             <div class="dropdown-content">
-              <a href="http://127.0.0.1:5000/api/game/get/season/2022">2022</a>
               <a href="http://127.0.0.1:5000/api/game/get/season/2021">2021</a>
               <a href="http://127.0.0.1:5000/api/game/get/season/2020">2020</a>
               <a href="http://127.0.0.1:5000/api/game/get/season/2019">2019</a>
