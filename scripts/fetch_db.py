@@ -1,12 +1,14 @@
 import csv, sqlite3
 
+
+
 con = sqlite3.connect("testing.db")
 cur = con.cursor()
 cur.execute(
     "CREATE TABLE IF NOT EXISTS players (id INTEGER PRIMARY KEY AUTOINCREMENT,playerName TEXT NOT NULL,position TEXT NOT NULL,age INTEGER NOT NULL,leauge TEXT NOT NULL,experince TEXT NOT NULL,teamID INTEGER NOT NULL,seasonID INTEGER NOT NULL,FOREIGN KEY (teamID) REFERENCES TEAMS(id) ON DELETE CASCADE ON UPDATE CASCADE,FOREIGN KEY (seasonID) REFERENCES ENDOFSEASONS(id) ON DELETE CASCADE ON UPDATE CASCADE)"
 )
 
-with open("Players.csv", "r") as fin:
+with open("Players.csv", "r", encoding="utf8") as fin:
     dr = csv.DictReader(fin)
     to_db = [
         (
@@ -26,7 +28,7 @@ cur.executemany(
     to_db,
 )
 
-with open("Teams.csv", "r") as fin:
+with open("Teams.csv", "r", encoding="utf8") as fin:
     dr = csv.DictReader(fin)
     to_db = [
         (
@@ -47,7 +49,7 @@ cur.executemany(
     to_db,
 )
 con.commit()
-with open("Stats.csv", "r") as fin:
+with open("Stats.csv", "r", encoding="utf8") as fin:
     dr = csv.DictReader(fin)
     to_db = [
         (
@@ -69,7 +71,7 @@ cur.executemany(
 )
 con.commit()
 
-with open("endofseasons.csv", "r") as fin:
+with open("endofseasons.csv", "r", encoding="utf8") as fin:
     dr = csv.DictReader(fin)
     to_db = [
         (
@@ -91,7 +93,7 @@ cur.executemany(
 )
 con.commit()
 
-with open("games.csv", "r") as fin:
+with open("games.csv", "r", encoding="utf8") as fin:
     dr = csv.DictReader(fin)
     to_db = [
         (
@@ -115,7 +117,7 @@ cur.executemany(
 con.commit()
 
 
-with open("games_details.csv", "r") as fin:
+with open("games_details.csv", "r", encoding="utf8") as fin:
     dr = csv.DictReader(fin)
     to_db = [
         (
