@@ -47,5 +47,26 @@ cur.executemany(
     to_db,
 )
 con.commit()
+with open("Stats.csv", "r") as fin:
+    dr = csv.DictReader(fin)
+    to_db = [
+        (
+            i["team"],
+            i["abbreviation"],
+            i["w"],
+            i["l"],
+            i["age"],
+            i["pw"],
+            i["pl"],
+            i["season"],
+        )
+        for i in dr
+    ]
+
+cur.executemany(
+    "INSERT INTO stats (teamName, abbreviation,win, loss,  age, winPercentage, lossPercentage,seasonID) VALUES (?,?, ?,?, ?, ?, ?, ?);",
+    to_db,
+)
+con.commit()
 
 con.close()

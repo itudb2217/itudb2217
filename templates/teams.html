@@ -21,7 +21,7 @@
 		</tr>
 		{% for  team in  Teams %}
         <tr>
-		  <td><a href="http://127.0.0.1:5000/api/player/get/team/{{team.abbreviation}}">{{ team.teamName }}</a></td>
+		  <td><a href="http://127.0.0.1:5000/api/team/get/{{ team.id }}">{{ team.teamName }}</a></td>
 		  <td>{{ team.playOff }}</td>
 		  <td>{{ team.numOfGames }}</td>
 		  <td>{{ team.matchPoints }}</td>

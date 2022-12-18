@@ -18,16 +18,22 @@
 	    <th>percentageFG</th>
 	    <th>seasonID</th>
   		<th>id</th>
+		<th>players</th>
+		<th>games</th>
+
+
 	</tr>
 	<tr>
-	    <td>{{ team.teamName }}</td>
-	    <td>{{ team.playOff }}</td>
-	    <td>{{ team.numOfGames }}</td>
-	    <td>{{ team.matchPoints }}</td>
-	    <td>{{ team.fieldGoals }}</td>
-	    <td>{{ team.percentageFG }}</td>
-	    <td>{{ team.seasonID }}</td>
-    	<td>{{ team.id }}</td>
+	    <td>{{ Team.teamName }}</td>
+	    <td>{{ Team.playOff }}</td>
+	    <td>{{ Team.numOfGames }}</td>
+	    <td>{{ Team.matchPoints }}</td>
+	    <td>{{ Team.fieldGoals }}</td>
+	    <td>{{ Team.percentageFG }}</td>
+	    <td>{{ Team.seasonID }}</td>
+    	<td>{{ Team.id }}</td>
+		<td><a href="http://127.0.0.1:5000/api/player/get/team/{{Team.abbreviation}}">players </a></td>
+		<td><a href="http://127.0.0.1:5000/api/player/get/team/{{Team.abbreviation}}">games </a></td>
 	</tr>
   </table>
  

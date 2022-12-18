@@ -1,5 +1,7 @@
 from flask import Blueprint, jsonify, render_template, request
 from dbops.team import Team
+from dbops.stats import Stats
+
 
 api = Blueprint("team_api", __name__, template_folder="templates")
 
@@ -7,6 +9,7 @@ api = Blueprint("team_api", __name__, template_folder="templates")
 @api.route("/get/<id>", methods=["GET", "POST"])
 def get(id):
     team = Team.get_by_id(id)
+    print(team)
     if not team:
         return jsonify({"status": "fail", "message": "team does not exist"})
 
