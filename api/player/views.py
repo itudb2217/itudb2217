@@ -75,5 +75,22 @@ def delete(id):
 @api.route("/update/<id>", methods=["GET", "POST"])
 def update(id):
     if "email" in session:
-        print("deleteops")
+        player = Player.get_by_id(id)
+        if request.method == "POST":
+            data = {
+                "playerName": request.form["playerName"],
+                "position": request.form["position"],
+                "age": request.form["age"],
+                "leauge": request.form["leauge"],
+                "experince": request.form["experince"],
+                "teamID": request.form["teamID"],
+                "abbreviation": request.form["abbreviation"],
+                "seasonID": request.form["seasonID"],
+                "id": id,
+            }
+            player = Player.update(data)
+            return render_template("update_player.html", Player=player)
+
+        return render_template("update_player.html", Player=player)
+
     return redirect(url_for("auth_api.login"))
