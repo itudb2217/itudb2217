@@ -15,6 +15,7 @@ class game(Base):
             game["percentageFT"],
             game["homeTeamID"],
             game["visitorTeamID"],
+            game["id"],
         )
         self.conn.commit()
 
@@ -29,6 +30,7 @@ class game(Base):
                 game["percentageFT"],
                 game["homeTeamID"],
                 game["visitorTeamID"],
+                game["id"],
             ),
         )
         self.conn.commit()
