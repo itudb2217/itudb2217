@@ -52,3 +52,12 @@
     top : 10%;
     right : 2.5%;
     } 
+  .body{ 
+    background-image: url("background.jpg");
+    background-size: 100% 100%;  
+  } 
+
+  .word{
+        color: white;
+    }
+
