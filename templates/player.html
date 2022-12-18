@@ -81,8 +81,8 @@
 		  <th>playerName</th>
 		  <th>position</th>
 		  <th>age</th>
-		  <th>leauge</th>
-		  <th>experince</th>
+		  <th>league</th>
+		  <th>experience</th>
 		  <th>teamID</th>
 		  <th>seasonID</th>
           <th>id</th>
@@ -91,8 +91,8 @@
 		  <td>{{ Player.playerName }}</td>
 		  <td>{{ Player.position}}</td>
 		  <td>{{ Player.age }}</td>
-		  <td>{{ Player.leauge }}</td>
-		  <td>{{ Player.experince }}</td>
+		  <td>{{ Player.league }}</td>
+		  <td>{{ Player.experience }}</td>
 		  <td>{{ Player.teamID }}</td>
 		  <td>{{ Player.seasonID }}</td>
           <td>{{ Player.id }}</td>
@@ -104,14 +104,9 @@
     <!-- data -->
 	<button class="go_back_button" onclick="goBack()">Go Back</button>
 	<a href="http://127.0.0.1:5000/api/auth/logout"><button class="logout">Log out</button></a>
-<<<<<<< HEAD
 	<a href="http://127.0.0.1:5000/api/player/delete/{{ Player.id }}"><button class="delete">Delete</button></a>
-	<a href="http://127.0.0.1:5000/api/player/update/{{ Player.id }}"><button class="delete">Update</button></a>
+	<a href="http://127.0.0.1:5000/api/player/update/{{ Player.id }}"><button class="update">Update</button></a>
 
-=======
-	<a href="http://127.0.0.1:5000/api/player/delete"><button class="delete">Delete</button></a>
-	<a href="http://127.0.0.1:5000/api/player/update"><button class="update">Update</button></a>
->>>>>>> 27a1fb882d743bb8b8645be32cfcd4a94249aa5b
 </body>
  
 </html>

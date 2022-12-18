@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>NBA Database</title>
   <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
-
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='nba.ico') }}">	
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -14,7 +14,7 @@
 	<div id="login-form-wrap">
 		
 	<h2>Update</h2>
-	<form id="login-form" action="{{ url_for('player_api.update') }}" method="post">
+	<form id="login-form" action="/api/player/update/{{Player.id}}" method="post">
 		<p>
 		<input type="text" id="playerName" name="playerName" placeholder={{ Player.playerName }} required><i class="validation"><span></span><span></span></i>
 		</p>
@@ -26,19 +26,21 @@
 
 		</p>
         <p>
-        <input type="text" id="leauge" name="email" placeholder="Email" required><i class="validation"><span></span><span></span></i>
+        <input type="text" id="league" name="league" placeholder="league" required><i class="validation"><span></span><span></span></i>
+        </p>
+		<p>
+			<input type="text" id="experience" name="experience" placeholder="experience" required><i class="validation"><span></span><span></span></i>
+			</p>
+        <p>
+        <input type="text" id="teamID" name="teamID" placeholder="teamID" required><i class="validation"><span></span><span></span></i>
         </p>
         <p>
-        <input type="text" id="teamID" name="password" placeholder="Password" required><i class="validation"><span></span><span></span></i>
+        <input type="text" id="abbreviation" name="abbreviation" placeholder="abbreviation" required><i class="validation"><span></span><span></span></i>
         </p>
         <p>
-            <input type="text" id="abbreviation" name="abbreviation" placeholder="abbreviation" required><i class="validation"><span></span><span></span></i>
-
+        <input type="text" id="seasonID" name="seasonID" placeholder="seasonID" required><i class="validation"><span></span><span></span></i>
         </p>
-        <p>
-            <input type="text" id="seasonID" name="seasonID" placeholder="seasonID" required><i class="validation"><span></span><span></span></i>
-
-        </p>
+		<input type="submit" value="Submit">
 	</form>
 	
 	</div><!--login-form-wrap-->

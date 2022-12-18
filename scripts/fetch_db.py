@@ -5,7 +5,7 @@ import csv, sqlite3
 con = sqlite3.connect("testing.db")
 cur = con.cursor()
 cur.execute(
-    "CREATE TABLE IF NOT EXISTS players (id INTEGER PRIMARY KEY AUTOINCREMENT,playerName TEXT NOT NULL,position TEXT NOT NULL,age INTEGER NOT NULL,leauge TEXT NOT NULL,experince TEXT NOT NULL,teamID INTEGER NOT NULL,seasonID INTEGER NOT NULL,FOREIGN KEY (teamID) REFERENCES TEAMS(id) ON DELETE CASCADE ON UPDATE CASCADE,FOREIGN KEY (seasonID) REFERENCES ENDOFSEASONS(id) ON DELETE CASCADE ON UPDATE CASCADE)"
+    "CREATE TABLE IF NOT EXISTS players (id INTEGER PRIMARY KEY AUTOINCREMENT,playerName TEXT NOT NULL,position TEXT NOT NULL,age INTEGER NOT NULL,league TEXT NOT NULL,experience TEXT NOT NULL,teamID INTEGER NOT NULL,seasonID INTEGER NOT NULL,FOREIGN KEY (teamID) REFERENCES TEAMS(id) ON DELETE CASCADE ON UPDATE CASCADE,FOREIGN KEY (seasonID) REFERENCES ENDOFSEASONS(id) ON DELETE CASCADE ON UPDATE CASCADE)"
 )
 
 with open("Players.csv", "r", encoding="utf8") as fin:
@@ -24,7 +24,7 @@ with open("Players.csv", "r", encoding="utf8") as fin:
     ]
 
 cur.executemany(
-    "INSERT INTO players (playerName, position, age,  leauge, experince,teamID,seasonID) VALUES (?, ?, ?, ?, ?, ?, ?);",
+    "INSERT INTO players (playerName, position, age,  league, experience,teamID,seasonID) VALUES (?, ?, ?, ?, ?, ?, ?);",
     to_db,
 )
 
