@@ -3,12 +3,20 @@
 <html>
  
 <head>
-    <title>FlaskTest</title>
+    <title>Game Details</title>
+    <link rel="stylesheet" href="tables.css">
+    <link rel="icon" type="image/x-icon" href="nba.ico">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </head>
  
 <body>
     <!-- data -->
     <h3>GameDetails, {{GameDetails}}</h3>
+    <button onclick="goBack()">Go Back</button>
 </body>
  
 </html>

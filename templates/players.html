@@ -3,7 +3,14 @@
 <html>
  
 <head>
-    <title>FlaskTest</title>
+    <title>Players</title>
+	<link rel="stylesheet" href="tables.css">
+    <link rel="icon" type="image/x-icon" href="nba.ico">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </head>
  
 <body>
@@ -34,6 +41,7 @@
 		{% endfor %}
 	  </table>
     <h3>Players, {{Players}}</h3>
+	<button onclick="goBack()">Go Back</button>
 </body>
  
 </html>
