@@ -5,6 +5,43 @@
   <title>NBA Database</title>
   <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
   <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='nba.ico') }}">	
+
+  <style> 
+	.go_back_button {
+		background-color: #4CAF50; /* Green */
+		border: none;
+		color: white;
+		padding: 10px 24px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 12px;
+		position : absolute;
+		top : 2.5%;
+		right : 2.5%;
+	  }
+
+	.logout{
+		background-color: red ; /* Green */
+		border: none;
+		color: white;
+		padding: 10px 24px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 12px;
+		position : absolute;
+		top : 10%;
+		right : 2.5%;
+	  }
+</style>
+
+<script>
+	function goBack() {
+		window.history.back();
+	}
+</script>
+
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -46,5 +83,10 @@
 	</div><!--login-form-wrap-->
 	<!-- partial -->
 	
+
+	<button class="go_back_button" onclick="goBack()">Go Back</button>
+	<a href="http://127.0.0.1:5000/api/auth/logout"><button class="logout">Log out</button></a>
+
+
 	</body>
 	</html>
