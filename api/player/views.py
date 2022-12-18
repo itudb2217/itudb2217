@@ -66,9 +66,11 @@ def get_all():
 
 @api.route("/delete/<id>", methods=["GET", "POST"])
 def delete(id):
+
     if "email" in session:
         Player.delete(id)
-        return jsonify({"status": "success"})
+        return redirect(url_for("home_api.home"))
+
     return redirect(url_for("auth_api.login"))
 
 
@@ -76,6 +78,7 @@ def delete(id):
 def update(id):
     if "email" in session:
         player = Player.get_by_id(id)
+        print(player)
         if request.method == "POST":
             data = {
                 "playerName": request.form["playerName"],
