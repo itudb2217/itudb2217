@@ -34,8 +34,16 @@ def createTeam():
 
 
 @api.route("/get/all", methods=["GET", "POST"])
-def get_all():
+def getAll():
     teams = Team.get_all()
+    if not teams:
+        return jsonify({"status": "fail", "message": "does not exist"})
+    return render_template("teams.html", Teams=teams)
+
+
+@api.route("/get/season/<season>", methods=["GET", "POST"])
+def getBySeason(season):
+    teams = Team.get_by_season(season)
     if not teams:
         return jsonify({"status": "fail", "message": "does not exist"})
     return render_template("teams.html", Teams=teams)

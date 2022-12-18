@@ -13,6 +13,15 @@ def get(id):
     return render_template("player.html", Player=player)
 
 
+@api.route("/get/team/<id>", methods=["GET", "POST"])
+def get_by_team(id):
+    players = Player.get_by_team(id)
+    print(players)
+    if not players:
+        return jsonify({"status": "fail", "message": "player does not exist"})
+    return render_template("players.html", Players=players)
+
+
 @api.route("/create", methods=["POST", "GET"])
 def createPlayer():
     if request.method == "POST":

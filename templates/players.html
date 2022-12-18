@@ -18,10 +18,10 @@
 		  <th>seasonID</th>
 		</tr>
 		{% for player in Players %}
-        <a href="http://127.0.0.1:5000/api/player/get/{{ player.id }}">
+       
 
 		<tr>
-		  <td>{{ player.playerName }}</td>
+			<td><a href="http://127.0.0.1:5000/api/player/get/{{player.id}}">{{ player.playerName }}</a></td>
 		  <td>{{ player.position }}</td>
 		  <td>{{ player.age }}</td>
 		  <td>{{ player.leauge }}</td>
@@ -31,7 +31,6 @@
           <td>{{ player.id }}</td>
 
 		</tr>
-        </a>
 		{% endfor %}
 	  </table>
     <h3>Players, {{Players}}</h3>

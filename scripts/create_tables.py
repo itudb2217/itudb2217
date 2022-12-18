@@ -12,6 +12,7 @@ INIT_STATEMENTS = [
     CREATE TABLE IF NOT EXISTS teams (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         teamName TEXT NOT NULL,
+        abbreviation TEXT NOT NULL,
         playOff BOOL NOT NULL,
         numOfGames INTEGER NOT NULL,
         matchPoints INTEGER NOT NULL,
