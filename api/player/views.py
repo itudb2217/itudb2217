@@ -90,7 +90,6 @@ def update(id):
             }
             player = Player.update(data)
             return render_template("update_player.html", Player=player)
-
         return render_template("update_player.html", Player=player)
 
     return redirect(url_for("auth_api.login"))
