@@ -15,6 +15,7 @@ class player(Base):
             player["experince"],
             player["teamID"],
             player["seasonID"],
+            
         )
         self.conn.commit()
 
