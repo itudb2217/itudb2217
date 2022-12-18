@@ -15,7 +15,8 @@ class game(Base):
             game["percentageFT"],
             game["homeTeamID"],
             game["visitorTeamID"],
-            #game["id"],
+            game["seasonID"],
+            # game["id"],
         )
         self.conn.commit()
 
@@ -30,7 +31,8 @@ class game(Base):
                 game["percentageFT"],
                 game["homeTeamID"],
                 game["visitorTeamID"],
-                #game["id"],
+                game["season"],
+                # game["id"],
             ),
         )
         self.conn.commit()
@@ -48,6 +50,7 @@ class game(Base):
             Game["percentageFT"] = row["percentageFT"]
             Game["homeTeamID"] = row["homeTeamID"]
             Game["visitorTeamID"] = row["visitorTeamID"]
+            Game["season"] = row["season"]
             Game["id"] = row["id"]
 
         except:
@@ -69,6 +72,7 @@ class game(Base):
                 Game["percentageFT"] = row["percentageFT"]
                 Game["homeTeamID"] = row["homeTeamID"]
                 Game["visitorTeamID"] = row["visitorTeamID"]
+                Game["season"] = row["season"]
                 Game["id"] = row["id"]
                 Games.append(Game)
         except:
@@ -93,9 +97,36 @@ class game(Base):
                 Game["homeTeamID"] = row["homeTeamID"]
                 Game["visitorTeamID"] = row["visitorTeamID"]
                 Game["id"] = row["id"]
+                Game["season"] = row["season"]
+
                 Games.append(Game)
         except:
             Games = None
+        return Games
+
+    def get_by_season(self, id):
+        Games = []
+        try:
+            self.cursor.execute(
+                f"SELECT * FROM {self.table_name} WHERE season=?", (id,)
+            )
+            rows = self.cursor.fetchall()
+            print(rows)
+            for row in rows:
+                Game = {}
+                Game["gameDate"] = row["gameDate"]
+                Game["gameStatus"] = row["gameStatus"]
+                Game["homeTeamPoints"] = row["homeTeamPoints"]
+                Game["percentageFG"] = row["percentageFG"]
+                Game["percentageFT"] = row["percentageFT"]
+                Game["homeTeamID"] = row["homeTeamID"]
+                Game["visitorTeamID"] = row["visitorTeamID"]
+                Game["season"] = row["season"]
+                Game["id"] = row["id"]
+                Games.append(Game)
+        except:
+            Games = None
+        print(Games)
         return Games
 
 

@@ -45,6 +45,18 @@ def get(id):
     return redirect(url_for("auth_api.login"))
 
 
+@api.route("/get/season/<season>", methods=["GET", "POST"])
+def getBySeason(season):
+    if "email" in session:
+        print(season)
+        games = Game.get_by_season(season)
+        print(games)
+        if not games:
+            return jsonify({"status": "fail", "message": "does not exist"})
+        return render_template("games.html", Games=games)
+    return redirect(url_for("auth_api.login"))
+
+
 @api.route("/get/all", methods=["GET", "POST"])
 def get_all():
     if "email" in session:

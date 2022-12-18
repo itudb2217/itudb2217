@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Stats</title>
+	<style> 
+		.go_back_button {
+			background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 10px 24px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 12px;
+			position : absolute;
+			top : 2.5%;
+			right : 2.5%;
+		  }
+
+		.logout{
+			background-color: red ; /* Green */
+			border: none;
+			color: white;
+			padding: 10px 24px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 12px;
+			position : absolute;
+			top : 10%;
+			right : 2.5%;
+		  }
+
+		table {
+            border-collapse: collapse;
+            width: 90%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {background-color: coral;}
+		  </style>
+    <link rel="icon" type="image/x-icon" href="nba.ico">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</head>
+ 
+<body>
+  	<table>
+		<tr>
+
+		    <th>type</th>
+		    <th>teamNo</th>
+	        <th>position</th>
+    	    <th>league</th>
+		    <th>playerID</th>
+		    <th>abbreviation</th>
+		    <th>season</th>
+		</tr>
+    {% for EndOfseason in EndOfseasons %}
+	    <tr>
+		    <td>{{ EndOfseason.type }}</td>
+		    <td>{{ EndOfseason.teamNo }}</td>
+		    <td>{{ EndOfseason.position }}</td>
+		    <td>{{ EndOfseason.league }}</td>
+		    <td>{{ EndOfseason.playerID }}</td>
+		    <td>{{ EndOfseason.teamID }}</td>
+		    <td>{{ EndOfseason.season }}</td>
+		</tr> 
+        </a>
+	{% endfor %}
+     
+	 </table>
+ 	 <h3>stats, {{stats}}</h3>
+  <!-- data -->
+  <button class="go_back_button" onclick="goBack()">Go Back</button>
+	<a href="http://127.0.0.1:5000/api/auth/logout"><button class="logout">Log out</button></a>
+</body>
+ 
+</html>
