@@ -2,8 +2,8 @@ from .base import Base
 
 
 class endOfseason(Base):
-    def _init_(self, db_name):
-        Base._init_(self, db_name, "endOfseason")
+    def __init__(self, db_name):
+        Base.__init__(self, db_name, "endofseasons")
 
     def create(self, endOfSeason):
         self.cursor.execute(
@@ -12,7 +12,7 @@ class endOfseason(Base):
                 endOfSeason["type"],
                 endOfSeason["teamNo"],
                 endOfSeason["position"],
-                endOfSeason["voteNo"],
+                endOfSeason["league"],
                 endOfSeason["birth"],
                 endOfSeason["playerID"],
                 endOfSeason["teamID"],
@@ -27,7 +27,7 @@ class endOfseason(Base):
                 endOfSeason["type"],
                 endOfSeason["teamNo"],
                 endOfSeason["position"],
-                endOfSeason["voteNo"],
+                endOfSeason["league"],
                 endOfSeason["birth"],
                 endOfSeason["playerID"],
                 endOfSeason["teamID"],
@@ -42,7 +42,7 @@ class endOfseason(Base):
             endOfSeason["type"] = row["type"]
             endOfSeason["teamNo"] = row["teamNo"]
             endOfSeason["position"] = row["position"]
-            endOfSeason["voteNo"] = row["voteNo"]
+            endOfSeason["league"] = row["league"]
             endOfSeason["birth"] = row["birth"]
             endOfSeason["playerID"] = row["playerID"]
             endOfSeason["teamID"] = row["teamID"]
@@ -62,7 +62,7 @@ class endOfseason(Base):
                 endOfSeason["type"] = row["type"]
                 endOfSeason["teamNo"] = row["teamNo"]
                 endOfSeason["position"] = row["position"]
-                endOfSeason["voteNo"] = row["voteNo"]
+                endOfSeason["league"] = row["league"]
                 endOfSeason["birth"] = row["birth"]
                 endOfSeason["playerID"] = row["playerID"]
                 endOfSeason["teamID"] = row["teamID"]
@@ -73,4 +73,4 @@ class endOfseason(Base):
         return endOfSeasons
 
 
-# EndOfseason = endOfseason("testing.db")
+EndOfseason = endOfseason("testing.db")

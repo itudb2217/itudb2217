@@ -19,10 +19,9 @@
 		  <th>visitorTeamID</th>
           <th>id</th>
 		</tr>
-        {% for  game in  games %}
- 		<a href="http://127.0.0.1:5000/api/game/get/{{ game.id }}">
-
+        {% for  game in  Games %}
 		<tr>
+
 		  <td>{{ game.gameDate }}</td>
 		  <td>{{ game.gameStatus }}</td>
 		  <td>{{ game.homeTeamPoints }}</td>
@@ -30,10 +29,11 @@
 		  <td>{{ game.percentageFT }}</td>
 		  <td>{{ game.homeTeamID }}</td>
 		  <td>{{ game.visitorTeamID }}</td>
-          <td>{{ game.id }}</td>
+		  <td><a href="http://127.0.0.1:5000/api/game/get/{{game.id}}">{{ game.id }}</a></td>
+
 		</tr>
 
-        </a>
+
         {% endfor %}
 	</table>
 

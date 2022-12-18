@@ -6,7 +6,7 @@ from api.user.views import api as user_api
 from api.stats.views import api as stats_api
 from api.game_detail.views import api as gameDetail_api
 
-# from api.end_of_season.views import api as endOfSeason_api
+from api.end_of_season.views import api as endOfSeason_api
 from api.game.views import api as game_api
 
 
@@ -20,7 +20,7 @@ app.register_blueprint(blueprint=team_api, url_prefix="/api/team")
 app.register_blueprint(blueprint=player_api, url_prefix="/api/player")
 app.register_blueprint(blueprint=stats_api, url_prefix="/api/stats")
 app.register_blueprint(blueprint=gameDetail_api, url_prefix="/api/gamedetail")
-# app.register_blueprint(blueprint=endOfSeason_api, url_prefix="/api/endofseason")
+app.register_blueprint(blueprint=endOfSeason_api, url_prefix="/api/endofseason")
 app.register_blueprint(blueprint=game_api, url_prefix="/api/game")
 
 

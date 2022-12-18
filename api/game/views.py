@@ -29,16 +29,15 @@ def createTeam():
 
 @api.route("/get/<id>", methods=["GET", "POST"])
 def get(id):
-    if request.method == "POST":
-        game = Game.get_by_id(id)
-        return render_template("game.html", Game=game)
-    return jsonify({"status": "success"})
+
+    game = Game.get_by_id(id)
+    return render_template("game.html", Game=game)
 
 
 @api.route("/get/all", methods=["GET", "POST"])
 def get_all():
     games = Game.get_all()
-    return jsonify({"status": "success"})
+    return render_template("games.html", Games=games)
 
 
 @api.route("/delete/<id>", methods=["GET", "POST"])

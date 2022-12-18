@@ -69,4 +69,68 @@ cur.executemany(
 )
 con.commit()
 
+with open("endofseasons.csv", "r") as fin:
+    dr = csv.DictReader(fin)
+    to_db = [
+        (
+            i["type"],
+            i["number_tm"],
+            i["position"],
+            i["lg"],
+            i["birth_year"],
+            i["season"],
+            i["player_id"],
+            i["tm"],
+        )
+        for i in dr
+    ]
+
+cur.executemany(
+    "INSERT INTO endofseasons (type, teamNo,position, league,  birth, season, playerID,teamID) VALUES (?,?, ?,?, ?, ?, ?, ?);",
+    to_db,
+)
+con.commit()
+
+with open("games.csv", "r") as fin:
+    dr = csv.DictReader(fin)
+    to_db = [
+        (
+            i["GAME_ID"],
+            i["GAME_DATE_EST"],
+            i["GAME_STATUS_TEXT"],
+            i["PTS_home"],
+            i["FG_PCT_home"],
+            i["FT_PCT_home"],
+            i["HOME_TEAM_ID"],
+            i["VISITOR_TEAM_ID"],
+        )
+        for i in dr
+    ]
+
+cur.executemany(
+    "INSERT INTO games (gameID,gameDate, gameStatus,homeTeamPoints, percentageFG,  percentageFT, homeTeamID, visitorTeamID) VALUES (?,?, ?,?, ?,?, ?, ?);",
+    to_db,
+)
+con.commit()
+
+
+with open("games_details.csv", "r") as fin:
+    dr = csv.DictReader(fin)
+    to_db = [
+        (
+            i["COMMENT"],
+            i["MIN"],
+            i["NICKNAME"],
+            i["TEAM_CITY"],
+            i["START_POSITION"],
+            i["GAME_ID"],
+        )
+        for i in dr
+    ]
+
+cur.executemany(
+    "INSERT INTO game_detail (comment, minute,nickName, city,  startingPosition, gameID) VALUES (?,?, ?,?, ?,?);",
+    to_db,
+)
+con.commit()
 con.close()

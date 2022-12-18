@@ -3,7 +3,7 @@ from .base import Base
 
 class game_details(Base):
     def __init__(self, db_name):
-        Base.__init__(self, db_name, "games_details")
+        Base.__init__(self, db_name, "game_detail")
 
     def create(self, game):
         self.cursor.execute(
@@ -25,18 +25,23 @@ class game_details(Base):
 
     def get_by_id(self, id):
 
-        game_stat = {}
+        game_details = {}
         try:
             row = super().get_by_id(id)
 
-            game_stat["awayTeam"] = row["awayTeam"]
-            game_stat["awayTeam"] = row["awayTeam"]
-            game_stat["id"] = row["id"]
+            game_details["comment"] = row["comment"]
+            game_details["minute"] = row["minute"]
+            game_details["nickName"] = row["nickName"]
+            game_details["city"] = row["city"]
+            game_details["startingPosition"] = row["startingPosition"]
+            game_details["gameID"] = row["gameID"]
+            game_details["id"] = row["id"]
 
         except:
-            game_stat = None
+            print("HERERERER")
+            game_details = None
 
-        return game_stat
+        return game_details
 
     def get_all(self):
         game_stats = []

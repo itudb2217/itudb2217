@@ -18,16 +18,22 @@
 		  <th>homeTeamID</th>
 		  <th>visitorTeamID</th>
           <th>id</th>
+          <th>details</th>
+
 		</tr>
 		<tr>
-		  <td>{{ game.gameDate }}</td>
-		  <td>{{ game.gameStatus }}</td>
-		  <td>{{ game.homeTeamPoints }}</td>
-		  <td>{{ game.percentageFG }}</td>
-		  <td>{{ game.percentageFT }}</td>
-		  <td>{{ game.homeTeamID }}</td>
-		  <td>{{ game.visitorTeamID }}</td>
-          <td>{{ game.id }}</td>
+		  <td>{{ Game.gameDate }}</td>
+		  <td>{{ Game.gameStatus }}</td>
+		  <td>{{ Game.homeTeamPoints }}</td>
+		  <td>{{ Game.percentageFG }}</td>
+		  <td>{{ Game.percentageFT }}</td>
+		  <td>{{ Game.homeTeamID }}</td>
+		  <td>{{ Game.visitorTeamID }}</td>
+          <td>{{ Game.id }}</td>
+		  <td><a href="http://127.0.0.1:5000/api/gamedetail/get/{{Game.id}}">details</a></td>
+
+          
+
 		</tr>
 	</table>
 
