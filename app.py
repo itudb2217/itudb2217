@@ -12,6 +12,7 @@ from api.game.views import api as game_api
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "somesecretkey"
+app.config["SESSION_TYPE"] = "filesystem"
 
 app.register_blueprint(blueprint=home_api, url_prefix="")
 app.register_blueprint(blueprint=auth_api, url_prefix="/api/auth")
