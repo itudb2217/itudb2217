@@ -53,6 +53,16 @@
 			display: inline-block;
 			font-size: 12px;
 		  }
+		  .create{
+			background-color: rgb(0, 72, 255); /* Green */
+			border: none;
+			color: white;
+			padding: 10px 24px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 12px;
+		  }
 
 		table {
             border-collapse: collapse;
@@ -106,6 +116,7 @@
 	<a href="http://127.0.0.1:5000/api/auth/logout"><button class="logout">Log out</button></a>
 	<a href="http://127.0.0.1:5000/api/player/delete/{{ Player.id }}"><button class="delete">Delete</button></a>
 	<a href="http://127.0.0.1:5000/api/player/update/{{ Player.id }}"><button class="update">Update</button></a>
+	<a href="http://127.0.0.1:5000/api/player/create"><button class="create">Create</button></a>
 
 </body>
  
