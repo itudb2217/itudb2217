@@ -44,6 +44,14 @@
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
+		table {
+		counter-reset: section;
+		}
+
+		.count:before {
+		counter-increment: section;
+		content: counter(section);
+		}
 
         tr:hover {background-color: coral;}
 		  </style>
@@ -58,6 +66,7 @@
 <body>
     <table>
 		<tr>
+		  <th>Id</th>
 		  <th>comment</th>
 		  <th>minute</th>
 		  <th>nickName</th>
@@ -66,7 +75,8 @@
 		  <th>gameID</th>
 		</tr>
 		<tr>
-
+		  
+		  <td class="count"></td>
 		  <td>{{ GameDetail.comment }}</td>
 		  <td>{{ GameDetail.minute }}</td>
 		  <td>{{ GameDetail.nickName }}</td>

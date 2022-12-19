@@ -46,6 +46,15 @@
         }
 
         tr:hover {background-color: coral;}
+
+		table {
+		counter-reset: section;
+		}
+
+		.count:before {
+		counter-increment: section;
+		content: counter(section);
+		}
 		  </style>
     <link rel="icon" type="image/x-icon" href="nba.ico">
     <script>
@@ -58,7 +67,7 @@
 <body>
   	<table>
 		<tr>
-
+			<th>Id</th>
 		    <th>type</th>
 		    <th>teamNo</th>
 	        <th>position</th>
@@ -69,6 +78,7 @@
 		</tr>
     {% for EndOfseason in EndOfseasons %}
 	    <tr>
+			<td class="count"></td>
 		    <td>{{ EndOfseason.type }}</td>
 		    <td>{{ EndOfseason.teamNo }}</td>
 		    <td>{{ EndOfseason.position }}</td>

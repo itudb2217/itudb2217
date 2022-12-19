@@ -11,8 +11,8 @@ class player(Base):
             player["playerName"],
             player["position"],
             player["age"],
-            player["leauge"],
-            player["experince"],
+            player["league"],
+            player["experience"],
             player["teamID"],
             player["seasonID"],
             
@@ -21,13 +21,13 @@ class player(Base):
 
     def update(self, player):
         self.cursor.execute(
-            "UPDATE players SET playerName=?, position=?, age=?, leauge=?, teamID=?,seasonID=? WHERE id=?",
+            "UPDATE players SET playerName=?, position=?, age=?, league=?, experience=?, teamID=?,seasonID=? WHERE id=?",
             (
                 player["playerName"],
                 player["position"],
                 player["age"],
-                player["leauge"],
-                player["experince"],
+                player["league"],
+                player["experience"],
                 player["teamID"],
                 player["seasonID"],
                 player["id"],
@@ -43,8 +43,8 @@ class player(Base):
             Player["playerName"] = row["playerName"]
             Player["position"] = row["position"]
             Player["age"] = row["age"]
-            Player["leauge"] = row["leauge"]
-            Player["experince"] = row["experince"]
+            Player["league"] = row["league"]
+            Player["experience"] = row["experience"]
             Player["teamID"] = row["teamID"]
             Player["seasonID"] = row["seasonID"]
             Player["id"] = row["id"]
@@ -64,8 +64,8 @@ class player(Base):
                 Player["playerName"] = row["playerName"]
                 Player["position"] = row["position"]
                 Player["age"] = row["age"]
-                Player["leauge"] = row["leauge"]
-                Player["experince"] = row["experince"]
+                Player["league"] = row["league"]
+                Player["experience"] = row["experience"]
                 Player["teamID"] = row["teamID"]
                 Player["seasonID"] = row["seasonID"]
                 Player["id"] = row["id"]
@@ -87,8 +87,8 @@ class player(Base):
                 Player["playerName"] = row["playerName"]
                 Player["position"] = row["position"]
                 Player["age"] = row["age"]
-                Player["leauge"] = row["leauge"]
-                Player["experince"] = row["experince"]
+                Player["league"] = row["league"]
+                Player["experience"] = row["experience"]
                 Player["teamID"] = row["teamID"]
                 Player["seasonID"] = row["seasonID"]
                 Player["id"] = row["id"]

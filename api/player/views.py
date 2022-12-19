@@ -42,8 +42,8 @@ def createPlayer():
                 "playerName": request.form["playerName"],
                 "position": request.form["position"],
                 "age": request.form["age"],
-                "leauge": request.form["leauge"],
-                "experince": request.form["experince"],
+                "league": request.form["league"],
+                "experience": request.form["experience"],
                 "teamID": request.form["teamID"],
                 "seasonID": request.form["seasonID"],
             }
@@ -84,13 +84,14 @@ def update(id):
                 "playerName": request.form["playerName"],
                 "position": request.form["position"],
                 "age": request.form["age"],
-                "leauge": request.form["leauge"],
-                "experince": request.form["experince"],
+                "league": request.form["league"],
+                "experience": request.form["experience"],
                 "teamID": request.form["teamID"],
                 "abbreviation": request.form["abbreviation"],
                 "seasonID": request.form["seasonID"],
                 "id": id,
             }
+            print("deneme")
             player = Player.update(data)
             return render_template("update_player.html", Player=player)
         return render_template("update_player.html", Player=player)
