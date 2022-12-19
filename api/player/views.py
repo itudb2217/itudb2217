@@ -47,10 +47,12 @@ def createPlayer():
                 "teamID": request.form["teamID"],
                 "seasonID": request.form["seasonID"],
             }
+            print(data)
             player = Player.create(data)
-            if not player:
-                return jsonify({"status": "fail", "message": "can not be created"})
-        return jsonify({"status": "success", "data": player})
+            return redirect(url_for("home_api.home"))
+
+        return render_template("create_player.html")
+
     return redirect(url_for("auth_api.login"))
 
 

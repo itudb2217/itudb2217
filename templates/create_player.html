@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Create Player</title>
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='nba.ico') }}">	
+  <style>
+	.go_back_button {
+			background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 10px 24px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 12px;
+			position : absolute;
+			top : 2.5%;
+			right : 2.5%;
+	}
+
+	.logout{
+			background-color: red ; /* Green */
+			border: none;
+			color: white;
+			padding: 10px 24px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 12px;
+			position : absolute;
+			top : 10%;
+			right : 2.5%;
+	}
+
+
+	input[type=text], select, textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+	}
+
+	label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+	}
+
+	input[type=submit] {
+	background-color: #04AA6D;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	float: right;
+	}
+
+	input[type=submit]:hover {
+	background-color: #45a049;
+	}
+
+	.container {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	}
+
+	.col-25 {
+	float: left;
+	width: 25%;
+	margin-top: 6px;
+	}
+
+	.col-75 {
+	float: left;
+	width: 75%;
+	margin-top: 6px;
+	}
+
+	/* Clear floats after the columns */
+	.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	}
+  </style>
+  <script>
+	function goBack() {
+		window.history.back();
+	}
+</script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+	<div id="login-form-wrap">
+		
+	<h2>Create Your Player</h2>
+
+	<div class="container">
+		<form id="login-form" action="/api/player/create" method="post">
+		<div class="row">
+		  <div class="col-25">
+			<label for="name">Name</label>
+		  </div>
+		  <div class="col-75">
+			<input type="text" id="playerName" name="playerName" placeholder="playerName" required><i class="validation"><span></span><span></span></i>
+		  </div>
+		</div>
+		<div class="row">
+			<div class="col-25">
+			  <label for = "position">Position</label>
+			</div>
+			<div class="col-75">
+			  <select type= "text" id="position" name="position" required><i class="validation"><span></span><span></span></i>
+				<option value="PG">Point Guard</option>
+				<option value="SG">Shooting Guard</option>
+				<option value="SF">Small Forward</option>
+				<option value="PF">Power Forward</option>
+				<option value="C">Center</option>
+			  </select>
+			</div>
+		  </div>
+		
+		  <div class="row">
+			<div class="col-25">
+			  <label for="age">Age</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="age" name="age" placeholder="age" required><i class="validation"><span></span><span></span></i>
+			</div>
+		  </div>
+
+		  <div class="row">
+			<div class="col-25">
+			  <label for="league">League</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="league" name="league" placeholder="league" required><i class="validation"><span></span><span></span></i>
+			</div>
+		  </div>
+		  
+		  <div class="row">
+			<div class="col-25">
+			  <label for="experience">Experience</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="experience" name="experience" placeholder="experience" required><i class="validation"><span></span><span></span></i>
+			</div>
+		  </div>
+
+		  <div class="row">
+			<div class="col-25">
+			  <label for="teamID">TeamID</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="teamID" name="teamID" placeholder="teamID" required><i class="validation"><span></span><span></span></i>
+			</div>
+		  </div>
+
+		  <div class="row">
+			<div class="col-25">
+			  <label for="abbreviation">Abbreviation</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="abbreviation" name="abbreviation" placeholder="abbreviation" required><i class="validation"><span></span><span></span></i>
+			</div>
+		  </div>
+		
+		
+		  <div class="row">
+			<div class="col-25">
+			  <label for="seasonID">Season</label>
+			</div>
+			<div class="col-75">
+				<input type="text" id="seasonID" name="seasonID" placeholder="seasonID" required><i class="validation"><span></span><span></span></i>
+			</div>
+		  </div>
+
+		<br>
+		<div class="row">
+		  <input type="submit" value="Submit">
+		</div>
+		</form>
+	  </div>
+
+	</div><!--login-form-wrap-->
+	<!-- partial -->
+	<button class="go_back_button" onclick="goBack()">Go Back</button>
+	<a href="http://127.0.0.1:5000/api/auth/logout"><button class="logout">Log out</button></a>
+	</body>
+	</html>

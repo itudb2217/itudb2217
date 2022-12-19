@@ -6,8 +6,9 @@ class player(Base):
         Base.__init__(self, db_name, "players")
 
     def create(self, player):
+        print("HEREE")
         self.cursor.execute(
-            "INSERT INTO players VALUES(NULL, ?, ?,?,?,?,?,?)",
+            "INSERT INTO players (playerName, position, age,  league, experience,teamID,seasonID) VALUES (NULL, ?, ?,?,?,?,?,?)",
             player["playerName"],
             player["position"],
             player["age"],
@@ -15,7 +16,6 @@ class player(Base):
             player["experience"],
             player["teamID"],
             player["seasonID"],
-            
         )
         self.conn.commit()
 
