@@ -8,14 +8,16 @@ class player(Base):
     def create(self, player):
         print("HEREE")
         self.cursor.execute(
-            "INSERT INTO players (playerName, position, age,  league, experience,teamID,seasonID) VALUES (NULL, ?, ?,?,?,?,?,?)",
-            player["playerName"],
-            player["position"],
-            player["age"],
-            player["league"],
-            player["experience"],
-            player["teamID"],
-            player["seasonID"],
+            "INSERT INTO players VALUES(NULL, ?, ?,?,?,?,?,?);",
+            (
+                player["playerName"],
+                player["position"],
+                player["age"],
+                player["league"],
+                player["experience"],
+                player["teamID"],
+                player["seasonID"],
+            ),
         )
         self.conn.commit()
 
